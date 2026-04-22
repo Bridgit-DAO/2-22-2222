@@ -1,0 +1,25 @@
+[Unit]
+Description=2-22-2222.xyz site API (Express)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/web/2-22-2222.xyz
+Environment=NODE_ENV=production
+Environment=PORT=4012
+Environment=SITE_NAME=2-22-2222
+ExecStart=/usr/bin/node api-server.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=site-2-22-2222
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/ubuntu/web/2-22-2222.xyz
+
+[Install]
+WantedBy=multi-user.target
